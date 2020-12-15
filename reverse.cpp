@@ -50,7 +50,7 @@ using namespace std;
                cin>>arr[i];
            }
                      cout<<"reverse of enterd number is  :";
-                       for ( i=sizee-1; i>=0; i--)
+                       for ( i=sizee-1; i>=0; i--) //y size-1 cox  array index starts frm zero that means it will run from size-1 to 0 while reversing 
                        {
                            cout<<arr[i];
                        }
