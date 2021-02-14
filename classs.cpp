@@ -10,12 +10,12 @@ class student
     int rollno;
     string name;
 
-  public: void setRollno(int x, string nam)
-  {
+  public: void setRollno(int x, string nam);
+  /*{
       rollno=x;
       name=nam;
 
-  }
+  }*/
   public: void getinfo()
   {
       cout<<rollno<<endl;
@@ -25,6 +25,12 @@ class student
 
 
 };
+void student:: setRollno(int x, string nam)   //scope resolution operator we can define a function outside the class
+  {
+      rollno=x;
+      name=nam;
+
+  };
 
 
 
