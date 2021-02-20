@@ -1,3 +1,4 @@
+//destructor
 #include<iostream>
 using namespace std;
 
@@ -10,9 +11,9 @@ public:
        cout<<"invoking constructor"<<endl;
    }
 
-   ~employ()
+   ~employ() //this is called automaticaly when object goes out of the scope that is when main fun ends
    {
-       cout<<"invoked destructor"; // deleting the object
+       cout<<"invoked destructor"; // destroying the instances
    }
 
 
