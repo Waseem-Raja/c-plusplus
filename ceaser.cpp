@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string.h>
+#include <cctype>
 using namespace std;
-
+/*
 void EncryptUper(int key, char msg[])
 {
     int length;
@@ -92,6 +93,8 @@ void DecryptLow(int key, char messag[])
 
 int main()
 {
+
+    
     int choice;
     cout << "FOR UPPERCASE Enter 1 , FOR LOWERCASE Enter 2" << endl;
     cin >> choice;
@@ -103,7 +106,8 @@ int main()
 
         char msg[100];
         cout << "Enter the message:"<<endl;
-        cin>>msg;
+        cin.getline(msg,100);
+        tolower(msg[100]);
         cout << "Enter key: ";
         cin >> key;
         EncryptUper(key, msg);
@@ -113,7 +117,7 @@ int main()
 
         char message[100];
         cout << "Enter the message:"<<endl;
-        cin>>message;
+        cin.getline(message,100);
         cout << "Enter key: ";
         cin >> key;
         EncryptLow(key, message);
@@ -122,4 +126,65 @@ int main()
     default:
         cout << "enter correct choice" << endl;
   }
+}*/
+
+
+void EncryptLow(int key, char messag[])
+{
+    int length;
+
+    length = strlen(messag);
+
+    char ch;
+    for (int i = 0; i < length; ++i)
+    {
+        ch = messag[i];
+        if (ch >= 'a' && ch <= 'z')
+        {
+            ch = ch + key;
+            if (ch > 'z')
+            {
+                ch = ch - 'z' + 'a' - 1;
+            }
+            messag[i] = ch;
+        }
+    }
+    cout << "Encrypted message: " << messag << endl;
+}
+
+void DecryptLow(int key, char messag[])
+{
+    int length;
+    length = strlen(messag);
+    char h;
+    for (int i = 0; i < length; ++i)
+    {
+        h = messag[i];
+        if (h >= 'a' && h <= 'z')
+        {
+            h = h - key;
+            if (h < 'a')
+            {
+                h = h + 'z' - 'a' + 1;
+            }
+            messag[i] = h;
+        }
+    }
+    cout << "Decrypted message: " << messag << endl;
+}
+
+int main()
+{
+
+    int key;
+    char msg[100];
+    cout << "Enter the message:" << endl;
+    cin.getline(msg, 100);
+     for (int i = 0; i < 100; i++)
+        msg[i] = tolower(msg[i]);
+
+    cout << "Enter key: ";
+    cin >> key;
+    EncryptLow(key, msg);
+    DecryptLow(key, msg);
 }
