@@ -6,8 +6,8 @@ using namespace std;
 int main()
 {
     int longestname = 0;
-    string name[10];  //array to store the line on
-    int sizenames[7]; //array to store the size
+    string name[10];   //array to store the line on
+    int sizenames[10]; //array to store the size
     int i = 0;
     int j;
     string line;
@@ -22,13 +22,16 @@ int main()
     }
     fil.close(); ////Closes the file
 
-    for (j = 0; j <= 6; j++)
+    int c = sizeof(name) / sizeof(name[0]);  //storing the no. of elements present in names array to c
+
+    for (j = 0; j < c; j++)
     {
         sizenames[j] = name[j].length(); //Q2   ,storing the sizes in sizenames array
-        if (sizenames[j] > longestname)  //Q3   
+        if (sizenames[j] > longestname)  //Q3
             longestname = sizenames[j];
     }
-    for (j = 0; j <= 6; j++) //Q4
+
+    for (j = 0; j < c; j++) //Q4
     {
         cout << setw(longestname) << name[j] << setw(longestname) << "is" << setw(longestname) << sizenames[j] << "  charecters long" << endl;
         //setw() function  is used to set the field width  in output operations.
